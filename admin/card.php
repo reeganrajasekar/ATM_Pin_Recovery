@@ -27,7 +27,7 @@
                     <label>Mobile</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input required type="number" class="form-control"  name="no" placeholder="ATM No">
+                    <input required type="number" min="1000000000000000" max="9999999999999999" class="form-control"  name="no" placeholder="ATM No">
                     <label>ATM NO</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
@@ -74,7 +74,8 @@
                             <td><?php echo($row["name"]) ?></td>
                             <td><?php echo($row["mobile"]) ?></td>
                             <td><?php echo($row["status"]) ?></td>
-                            <td class="text-center">
+                            <td class="text-center" style="display:flex;justify-content:space-around">
+                                <a href="/admin/atm.php?id=<?php echo($row["id"]) ?>" target="_blank" class="btn btn-secondary">View</a>
                                 <form action="/admin/action/delete.php" method="get">
                                     <input type="hidden" name="id" value="<?php echo($row["id"]) ?>">
                                     <button class="btn btn-danger">Delete</button>
